@@ -49,7 +49,7 @@ const config: HardhatUserConfig = {
     }
   },
   networks: {
-    dev: { url: 'http://localhost:8545' },
+    dev: { url: 'http://localhost:8545', chainId: 1337 },
     // github action starts localgeth service, for gas calculations
     localgeth: { url: 'http://localgeth:8545' },
     goerli: getNetwork('goerli'),
@@ -58,12 +58,10 @@ const config: HardhatUserConfig = {
   },
   mocha: {
     timeout: 10000
-  },
-
-  etherscan: {
-    apiKey: process.env.ETHERSCAN_API_KEY
   }
-
+  // etherscan: {
+  //   apiKey: process.env.ETHERSCAN_API_KEY
+  // }
 }
 
 // coverage chokes on the "compilers" settings

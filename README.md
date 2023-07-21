@@ -9,3 +9,11 @@ Implementation of contracts for [ERC-4337](https://eips.ethereum.org/EIPS/eip-43
 [Bundler reference implementation](https://github.com/eth-infinitism/bundler)
 
 [Bundler specification test suite](https://github.com/eth-infinitism/bundler-spec-tests)
+
+# Development
+
+```bash
+# Removed deterministicDeployment
+yarn install
+yarn deploy --network dev
+```

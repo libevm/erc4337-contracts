@@ -4,7 +4,7 @@ pragma solidity ^0.8.12;
 // Import the required libraries and contracts
 import "@openzeppelin/contracts/token/ERC20/extensions/IERC20Metadata.sol";
 import "@openzeppelin/contracts/token/ERC20/utils/SafeERC20.sol";
-import "@openzeppelin/contracts/utils/cryptography/EIP712.sol";
+import "@openzeppelin/contracts/utils/cryptography/draft-EIP712.sol";
 
 import "../core/EntryPoint.sol";
 import "../core/BasePaymaster.sol";

@@ -61,7 +61,8 @@ export class Create2Factory {
       gasLimit = Math.floor(gasLimit * 64 / 63)
     }
 
-    const ret = await this.signer.sendTransaction({ ...deployTx, gasLimit })
+    const chainId = await this.signer.getChainId()
+    const ret = await this.signer.sendTransaction({ ...deployTx, gasLimit, chainId })
     await ret.wait()
     if (await this.provider.getCode(addr).then(code => code.length) === 2) {
       throw new Error('failed to deploy')
@@ -98,9 +99,11 @@ export class Create2Factory {
     if (await this._isFactoryDeployed()) {
       return
     }
+    const chainId = await this.signer.getChainId()
     await (signer ?? this.signer).sendTransaction({
       to: Create2Factory.factoryDeployer,
-      value: BigNumber.from(Create2Factory.factoryDeploymentFee)
+      value: BigNumber.from(Create2Factory.factoryDeploymentFee),
+      chainId
     })
     await this.provider.sendTransaction(Create2Factory.factoryTx)
     if (!await this._isFactoryDeployed()) {
