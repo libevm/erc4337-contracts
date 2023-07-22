@@ -37,7 +37,7 @@ contract DepositPaymaster is BasePaymaster {
     mapping(address => uint256) public unlockBlock;
 
     constructor(IEntryPoint _entryPoint) BasePaymaster(_entryPoint) {
-        //owner account is unblocked, to allow withdraw of paid tokens;
+        // owner account is unblocked, to allow withdraw of paid tokens;
         unlockTokenDeposit();
     }
 
